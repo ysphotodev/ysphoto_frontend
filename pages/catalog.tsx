@@ -100,6 +100,13 @@ export default function Home({ posts }:{posts:{
               SUBJECT
             </Link>
             <Link
+                prefetch={false}
+                href="/video"
+                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
+            >
+              VIDEO
+            </Link>
+            <Link
               prefetch={false}
               href="/contacts"
               className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
