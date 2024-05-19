@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*@import "./../public/assets/fonts/helvetica";*/
+
+
+@font-face {
+    font-family: Helvetica;
+    src: url("./../public/assets/fonts/helvetica/Helvetica.ttf");
+}
+@font-face {
+    font-family: NotoSans;
+    src: url("./../public/assets/fonts/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf");
+}
+
+
+
+hr.solid {
+    /*border-top: 1px solid #bbb;*/
+    border-top: 1px solid #2d2d2d;
+    /*#2d2d2d*/
+}
+
+hr.solid1 {
+    /*border-top: 1px solid #bbb;*/
+    border-top: 1px solid white;
+    /*#2d2d2d*/
+}
+
+.swiper-pagination-bullet{
+    background:white !important;
+    width: 30px !important;
+    height: 5px !important;
+    border-radius: 0 !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: #D4B254 !important;
+    border-radius: 0;
+    width: 30px;
+    height: 5px;
+    margin: 0 20px 0 20px;
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal{
+    /*margin: 200px 0 0 0;*/
+    position: absolute;
+    /*bottom: -10px;*/
+    /*left:0;*/
+    z-index: 100;
+
+}
+
+
+.helvetica{
+    font-family: "Helvetica" ,sans-serif;
+}
+
+.notoSans{
+    font-family: "NotoSans" ,sans-serif;
+}
+
+.swiper-button-next{
+    color: #D4B254 !important;
+}
+
+.swiper-button-prev{
+    color: #D4B254 !important;
+}
+
+
+/*.onHover {*/
+/*    transform: scale(1.1);*/
+/*    transition: all .2s ease-in-out;*/
+/*}*/
