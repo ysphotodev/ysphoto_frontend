@@ -21,13 +21,13 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="manifest" href="/manifest/manifest.json" />
         <meta name="theme-color" content="#000000" />
-        <link
+{/*         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        />
+        /> */}
 
       </Head>
-      <Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" />
+{/*       <Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" /> */}
       <Component {...pageProps} />
     </>
 
