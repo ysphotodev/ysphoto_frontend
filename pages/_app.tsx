@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import 'react-image-gallery/styles/css/image-gallery.css';
+// import 'react-image-gallery/styles/css/image-gallery.css';
 import Script from 'next/script';
 
 export default function App({ Component, pageProps }: AppProps) {
