@@ -23,6 +23,7 @@ import ContactForm from "@/components/ContactForm";
 
 import { CiMenuFries } from "react-icons/ci";
 import { RiCloseLargeLine } from "react-icons/ri";
+import Head from "next/head";
 
 
 
@@ -33,14 +34,22 @@ export default function Home() {
 
 
   return (
-    <div>
-      <header
-        className="bg-black fixed w-full mx-auto z-10"
-        style={{
-          borderBottom: '1px solid #2d2d2d',
-        }}
-      >
-        <div className=" container mx-auto text-white flex items-center  justify-between">
+      <>
+        <Head>
+          <meta charSet="UTF-8"/>
+          <title>Yurchic Sergei - professional photographer & videographer | YS.OD.UA</title>
+          <meta name="description" content="Professional photo & video services in Odesa and Ukraine"/>
+          <meta name="author" content="Yurchic Sergei"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        </Head>
+        <div>
+          <header
+              className="bg-black fixed w-full mx-auto z-10"
+              style={{
+                borderBottom: '1px solid #2d2d2d',
+              }}
+          >
+            <div className=" container mx-auto text-white flex items-center  justify-between">
 
           <div
             className="py-3 mr-5"
@@ -399,5 +408,6 @@ export default function Home() {
         </p>
       </footer>
     </div>
+      </>
   );
 }
