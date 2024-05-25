@@ -21,6 +21,18 @@ const nextConfig = {
 
 
 
+    async redirects() {
+        return [
+            {
+                source: '/admin',
+                destination: 'https://strapi-ys-app-main.onrender.com/admin/auth/login',
+                permanent: true,
+            },
+        ]
+    },
+
+
+
 
 
  async headers() {
@@ -38,7 +50,7 @@ const nextConfig = {
         ]
     }
 
-  
+
 
 
 };

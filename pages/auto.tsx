@@ -14,10 +14,12 @@ import logo from '../public/assets/logo_ys_od_.svg';
 
 
 export default function Home({ posts }:{posts:{
-        name:string,
-        url:string,
-        id:string
-    }[]}) {
+    attributes:{
+      Title:string,
+      URL:string,
+    }
+    id:string
+  }[]}) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -232,8 +234,8 @@ export default function Home({ posts }:{posts:{
                 <Image
                   className="hover:rounded-3xl hover:ease-in-out hover:tracking-tight hover:scale-125 hover:duration-75"
                   key={image.id}
-                  src={image.url}
-                  alt={image.name}
+                  src={image.attributes.URL}
+                  alt={image.attributes.Title}
                   height={1000}
                   width={1000}
                   data-lightboxjs="lightbox1"
@@ -250,12 +252,6 @@ export default function Home({ posts }:{posts:{
           </div>
 
         </div>
-
-        {/* <div className="bg-[#EEEEEE]"> */}
-        {/*  <div className="container mx-auto "> */}
-        {/*    <HeroCarousel/> */}
-        {/*  </div> */}
-        {/* </div> */}
 
         <div className="sm:py-10 container mx-auto gallery_container  bg-white">
           <div className=" flex flex-col  ">
@@ -330,14 +326,20 @@ export default function Home({ posts }:{posts:{
   );
 }
 
-export async function getStaticProps() {
-  // const res = await fetch('http://localhost:3002/auto');
-  const res = await fetch('https://server-two-lilac.vercel.app/auto');
+export async function getServerSideProps() {
 
-  const posts = await res.json();
+  const token = '0605213b32c1ada81d1aeb665426785c5673cb96193b687af6af64f2ee02a079e1a76153b25a9850b79ca53c5c039439f69ec0747f8a2d7d2b5ae075c4a9f0cd921fb2892c537ec18cb30eb8a194fb439c1a1a200640383260ed7491e5ae68ed1dc2521b6e5bf8b1f36ad4e86a52e3889a9c05d401e8c29321da770125754db8'
+
+  const data = await fetch('https://strapi-ys-app-main.onrender.com/api/cars?pagination[start]=0&pagination[limit]=200',{
+    headers:{
+      Authorization:`Bearer ${process.env.API_TOKEN}`
+    }
+  })
+  const data2 = await data.json()
+
   return {
     props: {
-      posts: posts.auto,
+      posts: data2.data,
     },
   };
 }

@@ -12,8 +12,10 @@ import logo from '../public/assets/logo_ys_od_.svg';
 
 
 export default function Home({ posts }:{posts:{
-    name:string,
-    url:string,
+    attributes:{
+      Title:string,
+      URL:string,
+    }
     id:string
   }[]}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -226,12 +228,12 @@ export default function Home({ posts }:{posts:{
 
             <div className="container grid grid-cols-2 sm:grid-cols-4 gap-3 mx-auto items-center">
 
-              {posts.map((image) => (
+              {posts.map((post) => (
                 <Image
                   className="hover:rounded-3xl hover:ease-in-out hover:tracking-tight hover:scale-125 hover:duration-75"
-                  key={image.id}
-                  src={image.url}
-                  alt={image.name}
+                  key={post.id}
+                  src={post.attributes.URL}
+                  alt={post.attributes.Title}
                   height={1000}
                   width={1000}
                   data-lightboxjs="lightbox1"
@@ -248,12 +250,6 @@ export default function Home({ posts }:{posts:{
           </div>
 
         </div>
-
-        {/* <div className="bg-[#EEEEEE]"> */}
-        {/*  <div className="container mx-auto "> */}
-        {/*    <HeroCarousel/> */}
-        {/*  </div> */}
-        {/* </div> */}
 
         <div className="sm:py-10 container mx-auto gallery_container  bg-white">
           <div className=" flex flex-col  ">
@@ -328,14 +324,17 @@ export default function Home({ posts }:{posts:{
   );
 }
 
-export async function getStaticProps() {
-  // const res = await fetch('http://localhost:3002/advertisment');
-  const res = await fetch('https://server-two-lilac.vercel.app/advertisment');
+export async function getServerSideProps() {
+const data = await fetch('https://strapi-ys-app-main.onrender.com/api/advertisments?pagination[start]=0&pagination[limit]=200',{
+    headers:{
+      Authorization:`Bearer ${process.env.API_TOKEN}`
+    }
+  })
+  const data2 = await data.json()
 
-  const posts = await res.json();
   return {
     props: {
-      posts: posts.advertisment,
+      posts: data2.data,
     },
   };
 }

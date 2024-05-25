@@ -12,8 +12,10 @@ import logo from '../public/assets/logo_ys_od_.svg';
 
 
 export default function Home({ posts }:{posts:{
-  name:string,
-    url:string,
+    attributes:{
+      Title:string,
+      URL:string,
+    }
     id:string
   }[]}) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,10 +29,6 @@ export default function Home({ posts }:{posts:{
         }}
       >
         <div className=" container mx-auto text-white flex items-center justify-between">
-
-          {/* <div className={`px-5 sm:px-0 py-5 mr-10 text-3xl ${monts.className}`}> */}
-          {/*  SHCHEDROFF */}
-          {/* </div> */}
 
           <div
             className="py-3 mr-5"
@@ -228,47 +226,13 @@ export default function Home({ posts }:{posts:{
               </p>
             </div>
 
-            {/* <SlideshowLightbox */}
-            {/*  className="container grid grid-cols-2 sm:grid-cols-4 gap-3 mx-auto items-center" */}
-            {/*  // className="container grid grid-cols-2 sm:grid-cols-4 gap-3 mx-auto items-center pointer-events-none sm:pointer-events-auto" */}
-            {/*  showThumbnails */}
-            {/*  showControls */}
-            {/*  downloadImages */}
-            {/*  showNavigationDots */}
-            {/*  showThumbnailIcon */}
-            {/*  showFullScreenIcon */}
-            {/*  lightboxIdentifier="lightbox1" */}
-            {/*  framework="next" */}
-            {/*  images={images} */}
-            {/*  // images={posts} */}
-            {/*  fullScreen */}
-            {/* > */}
-
-            {/*  {images.map((image) => ( */}
-            {/*    <Image */}
-            {/*      className="hover:rounded-3xl hover:ease-in-out hover:tracking-tight hover:scale-125 hover:duration-75" */}
-            {/*      key={image.id} */}
-            {/*      src={image.src} */}
-            {/*      alt={image.alt} */}
-            {/*      height={1000} */}
-            {/*      width={1000} */}
-            {/*      data-lightboxjs="lightbox1" */}
-            {/*      quality={80} */}
-            {/*      sizes="(max-width: 640px) 100vw, */}
-            {/*            (max-width: 1280px) 50vw, */}
-            {/*            (max-width: 1536px) 33vw, */}
-            {/*            25vw" */}
-            {/*    /> */}
-            {/*  ))} */}
-            {/* </SlideshowLightbox> */}
-
             <div className="container grid grid-cols-2 sm:grid-cols-4 gap-3 mx-auto items-center">
-              {posts.map((image) => (
+              {posts.map((post) => (
                 <Image
                   className="hover:rounded-3xl hover:ease-in-out hover:tracking-tight hover:scale-125 hover:duration-75"
-                  key={image.id}
-                  src={image.url}
-                  alt={image.name}
+                  key={post.id}
+                  src={post.attributes.URL}
+                  alt={post.attributes.Title}
                   height={1000}
                   width={1000}
                   data-lightboxjs="lightbox1"
@@ -285,11 +249,6 @@ export default function Home({ posts }:{posts:{
 
         </div>
 
-        {/* <div className="bg-[#EEEEEE]"> */}
-        {/*  <div className="container mx-auto "> */}
-        {/*    <HeroCarousel/> */}
-        {/*  </div> */}
-        {/* </div> */}
 
         <div className="sm:py-10 container mx-auto gallery_container  bg-white">
           <div className=" flex flex-col  ">
@@ -364,38 +323,19 @@ export default function Home({ posts }:{posts:{
   );
 }
 
-// export async function getStaticProps() {
-//   // const res = await fetch('http://localhost:3002/catalog');
-//   const res = await fetch('https://serverysphoto-2bo5oyxgv-ysphotos-projects.vercel.app/catalog');
-//
-//
-//   console.log('resssss ', res)
-//
-//
-//
-//   const posts = await res.json();
-//
-//   // By returning { props: { posts } }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     props: {
-//       posts: posts.catalogue,
-//     },
-//   };
-// }
-
 
 export async function getServerSideProps() {
-  // const res = await fetch('http://localhost:3002/catalog');
-  const res = await fetch('https://server-two-lilac.vercel.app/catalog');
+const data = await fetch('https://strapi-ys-app-main.onrender.com/api/catalogs?pagination[start]=0&pagination[limit]=200',{
+    headers:{
+      Authorization:`Bearer ${process.env.API_TOKEN}`
+    }
+  })
+  const data2 = await data.json()
 
-  const posts = await res.json();
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
     props: {
-      posts: posts.catalogue,
+      posts: data2.data,
     },
   };
 }
