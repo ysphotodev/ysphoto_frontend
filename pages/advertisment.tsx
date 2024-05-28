@@ -33,6 +33,7 @@ export default function Home({ posts }:{posts:{
           <div
             className="py-3 mr-5"
           >
+            <Link href={'/'} prefetch={false}>
             <Image
               className="max-w-[200px]"
               src={logo}
@@ -45,6 +46,7 @@ export default function Home({ posts }:{posts:{
                         (max-width: 1536px) 33vw,
                         25vw"
             />
+            </Link>
           </div>
 
           <div className={` hidden xl:flex `}>

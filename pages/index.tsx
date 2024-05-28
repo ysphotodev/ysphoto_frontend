@@ -3,7 +3,7 @@
 import React, {useState} from 'react';
 import Image from 'next/image';
 
-// import { Montserrat, Roboto } from 'next/font/google';
+
 import Link from 'next/link';
 import adsBack from '../public/assets/images/ads_back.png';
 
@@ -16,9 +16,6 @@ import auto from '../public/assets/images/categories/auto.jpg';
 import foodstyle from '../public/assets/images/categories/foodstyle.jpg';
 import subject from '../public/assets/images/categories/subject.jpg';
 import ContactForm from "@/components/ContactForm";
-
-// const monts = Montserrat({ subsets: ['latin'] });
-// const roboto = Roboto({ weight: '900', subsets: ['latin'] });
 
 
 import { CiMenuFries } from "react-icons/ci";
@@ -54,18 +51,20 @@ export default function Home() {
           <div
             className="py-3 mr-5"
           >
-            <Image
-              className="max-w-[200px]"
-              src={logo}
-              alt="logo"
-              height={100}
-              width={350}
-              quality={100}
-              sizes="(max-width: 640px) 100vw,
+            <Link href={'/'} prefetch={false}>
+              <Image
+                  className="max-w-[200px]"
+                  src={logo}
+                  alt="logo"
+                  height={100}
+                  width={350}
+                  quality={100}
+                  sizes="(max-width: 640px) 100vw,
                         (max-width: 1280px) 50vw,
                         (max-width: 1536px) 33vw,
                         25vw"
-            />
+              />
+            </Link>
           </div>
 
           <div className={` hidden xl:flex `}>
