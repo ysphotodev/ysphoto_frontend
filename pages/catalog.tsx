@@ -220,7 +220,7 @@ export default function Home({ posts }:{posts:{
           <div className=" flex flex-col  ">
             <div className=" sm:my-3 py-5 bg-white  max-w-[500px]">
               <p
-                className={`text-center text-black notoSans text-[3rem] sm:text-[4.5rem] uppercase  `}
+                  className={`text-center text-black notoSans text-[3rem] sm:text-[4.5rem] uppercase  `}
               >
                 Catalogue
               </p>
@@ -235,7 +235,6 @@ export default function Home({ posts }:{posts:{
                   alt={post.attributes.Title}
                   height={1000}
                   width={1000}
-                  data-lightboxjs="lightbox1"
                   quality={80}
                   sizes="(max-width: 640px) 100vw,
                         (max-width: 1280px) 50vw,
@@ -244,6 +243,7 @@ export default function Home({ posts }:{posts:{
                 />
               ))}
             </div>
+
 
           </div>
 
@@ -254,7 +254,7 @@ export default function Home({ posts }:{posts:{
           <div className=" flex flex-col  ">
             <div className=" sm:my-3 py-5 bg-black  max-w-[600px] border border-2 border-black">
               <p
-                className={`text-center text-white notoSans text-[2.3rem] sm:text-[4.5rem] uppercase  `}
+                  className={`text-center text-white notoSans text-[2.3rem] sm:text-[4.5rem] uppercase  `}
               >
                 Contact Me
               </p>
@@ -262,7 +262,7 @@ export default function Home({ posts }:{posts:{
             </div>
 
             <div className="w-full max-w-xl mx-auto">
-              <form style={{ boxShadow: '0px 2px 22px 0px rgb(0 0 0 / 15%)' }} className="bg-white px-8 pt-6 pb-8 mb-4">
+              <form style={{boxShadow: '0px 2px 22px 0px rgb(0 0 0 / 15%)'}} className="bg-white px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
                   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                     Name
@@ -325,7 +325,7 @@ export default function Home({ posts }:{posts:{
 
 
 export async function getServerSideProps() {
-const data = await fetch('https://strapi-ys-app-main.onrender.com/api/catalogs?pagination[start]=0&pagination[limit]=200',{
+const data = await fetch('http://64.176.70.84:1337/api/catalogs?pagination[start]=0&pagination[limit]=200',{
     headers:{
       Authorization:`Bearer ${process.env.API_TOKEN}`
     }

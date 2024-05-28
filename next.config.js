@@ -25,7 +25,7 @@ const nextConfig = {
         return [
             {
                 source: '/admin',
-                destination: 'https://strapi-ys-app-main.onrender.com/admin/auth/login',
+                destination: 'http://64.176.70.84:1337/admin/auth/login',
                 permanent: true,
             },
         ]

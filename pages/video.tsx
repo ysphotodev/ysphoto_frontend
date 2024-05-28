@@ -288,7 +288,7 @@ export default function Home({ posts }:{posts:{
 
 
 export async function getServerSideProps() {
-  const data = await fetch('https://strapi-ys-app-main.onrender.com/api/videos',{
+  const data = await fetch('http://64.176.70.84:1337/api/videos',{
     headers:{
       Authorization:`Bearer ${process.env.API_TOKEN}`
     }

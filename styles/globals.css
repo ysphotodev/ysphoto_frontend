@@ -4,14 +4,14 @@
 /*@import "./../public/assets/fonts/helvetica";*/
 
 
-@font-face {
-    font-family: Helvetica;
-    src: url("./../public/assets/fonts/helvetica/Helvetica.ttf");
-}
-@font-face {
-    font-family: NotoSans;
-    src: url("./../public/assets/fonts/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf");
-}
+/*@font-face {*/
+/*    font-family: Helvetica;*/
+/*    src: url("./../public/assets/fonts/helvetica/Helvetica.ttf");*/
+/*}*/
+/*@font-face {*/
+/*    font-family: NotoSans;*/
+/*    src: url("./../public/assets/fonts/Noto_Sans/NotoSans-VariableFont_wdth,wght.ttf");*/
+/*}*/
 
 
 
@@ -52,13 +52,13 @@ hr.solid1 {
 }
 
 
-.helvetica{
-    font-family: "Helvetica" ,sans-serif;
-}
+/*.helvetica{*/
+/*    font-family: "Helvetica" ,sans-serif;*/
+/*}*/
 
-.notoSans{
-    font-family: "NotoSans" ,sans-serif;
-}
+/*.notoSans{*/
+/*    font-family: "NotoSans" ,sans-serif;*/
+/*}*/
 
 .swiper-button-next{
     color: #D4B254 !important;
