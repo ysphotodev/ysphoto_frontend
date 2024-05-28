@@ -327,7 +327,7 @@ export default function Home({ posts }:{posts:{
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const data = await fetch('http://64.176.70.84:1337/api/weddings?pagination[start]=0&pagination[limit]=200',{
     headers:{
       Authorization:`Bearer ${process.env.API_TOKEN}`
@@ -339,5 +339,6 @@ export async function getServerSideProps() {
     props: {
       posts: data2.data,
     },
+    revalidate: 5, // In seconds
   };
 }
