@@ -46,10 +46,6 @@ export default function Home({ posts }:{posts:{
                   height={100}
                   width={350}
                   quality={100}
-                  sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
               />
             </Link>
           </div>

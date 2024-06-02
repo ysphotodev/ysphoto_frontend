@@ -1,5 +1,3 @@
-/*eslint-disable*/
-
 import React, {useState} from 'react';
 import Image from 'next/image';
 
@@ -9,12 +7,6 @@ import adsBack from '../public/assets/images/ads_back.png';
 
 import logo from '../public/assets/logo_ys_od_.svg';
 import ava from '../public/assets/IMG_ava_7674_1.jpg';
-import advertisment from '../public/assets/images/categories/advertisment.jpg';
-import catalog from '../public/assets/images/categories/catalog.jpg';
-import wedding from '../public/assets/images/categories/wedding.jpg';
-import auto from '../public/assets/images/categories/auto.jpg';
-import foodstyle from '../public/assets/images/categories/foodstyle.jpg';
-import subject from '../public/assets/images/categories/subject.jpg';
 import ContactForm from "@/components/ContactForm";
 
 
@@ -24,10 +16,34 @@ import Head from "next/head";
 
 
 
-export default function Home() {
+
+export default function Home({posts}:{
+  posts:{
+    id:string,
+    attributes:{
+      title:string,
+      url:string,
+      positionNumber:string,
+      imageUrl:string,
+    }
+  }[]
+}) {
+
+const aa = {
+  id: 7,
+  attributes: {
+    title: 'Subject',
+    url: 'https://ys.od.ua/subject',
+    positionNumber: '6',
+    createdAt: '2024-06-01T20:24:30.234Z',
+    updatedAt: '2024-06-01T20:24:33.299Z',
+    publishedAt: '2024-06-01T20:24:33.183Z',
+    imageUrl: 'https://res.cloudinary.com/dscdfmsdw/image/upload/v1717273449/subject_89430cfa24.jpg'
+  }
+}
 
 
- const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
 
   return (
@@ -236,7 +252,7 @@ export default function Home() {
           }}
       >
 
-        <div className="pt-16  container mx-auto gallery_container  bg-white ">
+        <div className="pt-16  container mx-auto gallery_container  bg-white  rounded-3xl">
           <div>
             <div className="grid-cols-1 xl:grid-cols-2 grid  sm:py-5    items-center ">
 
@@ -248,16 +264,13 @@ export default function Home() {
 
               <div>
                 <Image
-                    className="max-w-[400px] border border-2  sm:border-4   sm:border-red-600 "
+                    className="max-w-[400px] border border-2  sm:border-4   sm:border-red-600 rounded-3xl "
                     src={ava}
                     alt="author"
                     height={500}
                     width={500}
-                    quality={100}
-                    sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
+                    quality={80}
+
                 />
               </div>
 
@@ -267,121 +280,40 @@ export default function Home() {
 
         </div>
 
-        <div className="container p-6 grid grid-cols-1 sm:grid-cols-3   mx-auto ">
+        <div className="container p-6 grid grid-cols-1 sm:grid-cols-3 gap-3  mx-auto ">
 
-          <Link prefetch={false} href={'/advertisment'}
-                className="items-center flex flex-col relative hover:scale-110 ">
-            <Image
-                className="max-w-[300px] border border-2 "
-                src={advertisment}
-                alt="author"
-                height={500}
-                width={500}
-                quality={100}
-                sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
-            />
-            <p className="text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
-              Advertisment
-            </p>
-          </Link>
 
-          <Link prefetch={false} href={'/catalog'} className=" items-center flex flex-col relative hover:scale-110 ">
-            <Image
-                className="max-w-[300px] border border-2 "
-                src={catalog}
-                alt="author"
-                height={500}
-                width={500}
-                quality={100}
-                sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
-            />
-            <p className="text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
-              Catalogue
-            </p>
-          </Link>
 
-          <Link prefetch={false} href={'/wedding'} className="items-center flex flex-col relative hover:scale-110 ">
-            <Image
-              className="max-w-[300px] border border-2 "
-              src={wedding}
-              alt="author"
-              height={500}
-              width={500}
-              quality={100}
-              sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
-            />
-            <p className="text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
-              Wedding
-            </p>
-          </Link>
+          {
+            posts.map(post=>(
 
-          <Link prefetch={false} href={'/auto'} className="items-center flex flex-col relative hover:scale-110 ">
-            <Image
-              className="max-w-[300px] border border-2 "
-              src={auto}
-              alt="author"
-              height={500}
-              width={500}
-              quality={100}
-              sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
-            />
-            <p className="text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
-              Auto
-            </p>
-          </Link>
 
-          <Link prefetch={false} href={'/food'} className="items-center flex flex-col relative hover:scale-110 ">
-            <Image
-              className="max-w-[300px] border border-2 "
-              src={foodstyle}
-              alt="author"
-              height={500}
-              width={500}
-              quality={100}
-              sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
-            />
-            <p className="text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
-              Foodstyle
-            </p>
-          </Link>
+                <Link key={post.id} prefetch={false} href={post.attributes.url}
+                      className="items-center flex flex-col relative hover:scale-110  border border-white   bg-gray-950 rounded-3xl">
+                  <Image
+                      className="max-w-[300px]  "
+                      src={post.attributes.imageUrl}
+                      alt="author"
+                      height={500}
+                      width={500}
+                      quality={80}
+                  />
+                  <p className=" rounded-xl  text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
+                    {post.attributes.title}
+                  </p>
+                </Link>
 
-          <Link prefetch={false} href={'/subject'} className="items-center flex flex-col relative hover:scale-110 ">
-            <Image
-              className="max-w-[300px] border border-2 "
-              src={subject}
-              alt="author"
-              height={500}
-              width={500}
-              quality={100}
-              sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
-            />
-            <p className="text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
-              Subject
-            </p>
-          </Link>
+
+
+
+            ))
+          }
+
 
         </div>
 
         <div className="sm:py-10 container mx-auto gallery_container  bg-white">
-          <div className=" flex flex-col  ">
+          <div className=" flex flex-col ">
             <div className=" sm:my-3 py-5 bg-black  max-w-[600px] border border-2 border-black">
               <p
                 className={`text-center text-white notoSans text-[2.3rem] sm:text-[4.5rem] uppercase  `}
@@ -409,4 +341,24 @@ export default function Home() {
     </div>
       </>
   );
+}
+
+export async function getStaticProps() {
+  const data = await fetch('http://64.176.70.84:1337/api/mains?pagination[start]=0&pagination[limit]=200',{
+    headers:{
+      Authorization:`Bearer ${process.env.API_TOKEN}`
+    }
+  })
+
+  const data2 = await data.json()
+
+  const data3 = data2.data.sort((a:any, b:any) => +a.attributes.positionNumber - +b.attributes.positionNumber)
+
+  return {
+    props: {
+      // posts: data2.data,
+      posts: data3,
+    },
+    revalidate: 5, // In seconds
+  };
 }
