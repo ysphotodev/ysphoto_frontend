@@ -22,17 +22,17 @@ const nextConfig = {
 
 
 
-async rewrites() {
-        return [
-            {
-                source: '/admin',
-                destination: 'http://64.176.70.84:1337/admin',
-            },
-        ]
-    },
+// async rewrites() {
+//         return [
+//             {
+//                 source: '/admin',
+//                 destination: 'http://64.176.70.84:1337/admin',
+//             },
+//         ]
+//     },
 
 
-  
+
 
     // async redirects() {
     //     return [
