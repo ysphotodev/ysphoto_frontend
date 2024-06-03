@@ -25,7 +25,7 @@ const nextConfig = {
 async rewrites() {
         return [
             {
-                source: '/admin',
+                source: '/admin/*',
                 destination: 'http://64.176.70.84:1337/admin',
             },
         ]
