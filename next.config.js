@@ -38,7 +38,7 @@ const nextConfig = {
         return [
             {
                 source: '/admin',
-                destination: 'https://64.176.70.84:1337/admin',
+                destination: 'http://64.176.70.84:1337/admin',
                 permanent: true,
             },
         ]
