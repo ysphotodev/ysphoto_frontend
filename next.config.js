@@ -21,15 +21,28 @@ const nextConfig = {
 
 
 
-    async redirects() {
+
+async rewrites() {
         return [
             {
                 source: '/admin',
-                destination: 'http://64.176.70.84:1337/admin/auth/login',
-                permanent: true,
+                destination: 'http://64.176.70.84:1337/admin',
             },
         ]
     },
+
+
+  
+
+    // async redirects() {
+    //     return [
+    //         {
+    //             source: '/admin',
+    //             destination: 'http://64.176.70.84:1337/admin',
+    //             permanent: true,
+    //         },
+    //     ]
+    // },
 
 
 
