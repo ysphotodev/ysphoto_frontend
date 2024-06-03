@@ -22,27 +22,27 @@ const nextConfig = {
 
 
 
-async rewrites() {
+// async rewrites() {
+//         return [
+//             {
+//                 source: '/admin',
+//                 destination: 'http://64.176.70.84:1337/admin',
+//             },
+//         ]
+//     },
+
+
+
+
+    async redirects() {
         return [
             {
                 source: '/admin',
                 destination: 'http://64.176.70.84:1337/admin',
+                permanent: true,
             },
         ]
     },
-
-
-
-
-    // async redirects() {
-    //     return [
-    //         {
-    //             source: '/admin',
-    //             destination: 'http://64.176.70.84:1337/admin',
-    //             permanent: true,
-    //         },
-    //     ]
-    // },
 
 
 
@@ -75,6 +75,5 @@ const withPWA = require('next-pwa')({
   sw: 'service-worker.js',
 });
 
-// module.exports = withPWA(nextConfig);
+module.exports = withPWA(nextConfig);
 
-module.exports = nextConfig
