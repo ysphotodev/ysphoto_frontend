@@ -289,7 +289,7 @@ const aa = {
 
 
                 <Link key={post.id} prefetch={false} href={post.attributes.url}
-                      className="items-center flex flex-col relative hover:scale-110  border border-white   bg-gray-950 rounded-3xl">
+                      className="items-center flex flex-col relative hover:bg-white duration-300 hover:scale-105  border border-white   bg-gray-950 rounded-3xl">
                   <Image
                       className="max-w-[300px]  "
                       src={post.attributes.imageUrl}
