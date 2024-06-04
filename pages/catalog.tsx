@@ -9,6 +9,7 @@ import { RiCloseLargeLine } from 'react-icons/ri';
 import adsBack from '../public/assets/images/ads_back.png';
 
 import logo from '../public/assets/logo_ys_od_.svg';
+import ContactForm from "@/components/ContactForm";
 
 
 export default function Home({ posts }:{posts:{
@@ -255,50 +256,7 @@ export default function Home({ posts }:{posts:{
 
             </div>
 
-            <div className="w-full max-w-xl mx-auto">
-              <form style={{boxShadow: '0px 2px 22px 0px rgb(0 0 0 / 15%)'}} className="bg-white px-8 pt-6 pb-8 mb-4">
-                <div className="mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="name"
-                    type="text"
-                    placeholder="Name"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
-                    Phone
-                  </label>
-                  <input
-                    className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-2 leading-tight focus:outline-none focus:shadow-outline"
-                    id="phone"
-                    type="phone"
-                    placeholder="+380635555555"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
-                    Message
-                  </label>
-                  <textarea
-                    placeholder="Message"
-                    className="resize-none h-36 shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <button
-                    className="w-full bg-black hover:bg-white border-transparent border border-2 hover:border-black hover:text-black  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="button"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
-
-            </div>
+            <ContactForm/>
 
           </div>
 
