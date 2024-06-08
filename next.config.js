@@ -38,7 +38,7 @@ const nextConfig = {
         return [
             {
                 source: '/admin',
-                destination: 'https://sh-dev.xyz/admin',
+                destination: 'https://ys-api.sh-dev.xyz/admin',
                 permanent: true,
             },
         ]
