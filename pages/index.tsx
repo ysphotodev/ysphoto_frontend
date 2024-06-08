@@ -344,7 +344,7 @@ const aa = {
 }
 
 export async function getStaticProps() {
-  const data = await fetch('https://sh-dev.xyz/api/mains?pagination[start]=0&pagination[limit]=200',{
+  const data = await fetch('https://ys-api.sh-dev.xyz/api/mains?pagination[start]=0&pagination[limit]=200',{
     headers:{
       Authorization:`Bearer ${process.env.API_TOKEN}`
     }
