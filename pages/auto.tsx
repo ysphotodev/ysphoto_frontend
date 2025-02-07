@@ -15,7 +15,7 @@ import Modal from "react-modal";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
 
-
+Modal.setAppElement("#__next"); // Prevents screen readers issues
 
 export default function Home({ posts }:{posts:{
     attributes:{
