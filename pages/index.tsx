@@ -1,23 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Image from 'next/image';
-
-
 import Link from 'next/link';
 import adsBack from '../public/assets/images/ads_back.png';
-
-import logo from '../public/assets/logo_ys_od_.svg';
 import ava from '../public/assets/IMG_ava_7674_1.jpg';
 import ContactForm from "@/components/ContactForm";
-
-
-import { CiMenuFries } from "react-icons/ci";
-import { RiCloseLargeLine } from "react-icons/ri";
 import Head from "next/head";
+import Header from "@/components/Header";
 
-
-
-
-export default function Home({posts}:{
+export default function HomePage({posts}:{
   posts:{
     id:string,
     attributes:{
@@ -29,23 +19,6 @@ export default function Home({posts}:{
   }[]
 }) {
 
-const aa = {
-  id: 7,
-  attributes: {
-    title: 'Subject',
-    url: 'https://ys.od.ua/subject',
-    positionNumber: '6',
-    createdAt: '2024-06-01T20:24:30.234Z',
-    updatedAt: '2024-06-01T20:24:33.299Z',
-    publishedAt: '2024-06-01T20:24:33.183Z',
-    imageUrl: 'https://res.cloudinary.com/dscdfmsdw/image/upload/v1717273449/subject_89430cfa24.jpg'
-  }
-}
-
-
-  const [isOpen, setIsOpen] = useState(false)
-
-
   return (
       <>
         <Head>
@@ -56,194 +29,10 @@ const aa = {
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         </Head>
         <div>
-          <header
-              className="bg-black fixed w-full mx-auto z-10"
-              style={{
-                borderBottom: '1px solid #2d2d2d',
-              }}
-          >
-            <div className=" container mx-auto text-white flex items-center  justify-between">
 
-          <div
-            className="py-3 mr-5"
-          >
-            <Link href={'/'} prefetch={false}>
-              <Image
-                  className="max-w-[200px]"
-                  src={logo}
-                  alt="logo"
-                  height={100}
-                  width={350}
-                  quality={100}
-                  sizes="(max-width: 640px) 100vw,
-                        (max-width: 1280px) 50vw,
-                        (max-width: 1536px) 33vw,
-                        25vw"
-              />
-            </Link>
-          </div>
-
-          <div className={` hidden xl:flex `}>
-            <Link
-                prefetch={false}
-                href="/"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              HOME
-            </Link>
-            <Link
-                prefetch={false}
-                href="/catalog"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              CATALOGUE
-            </Link>
-            <Link
-                prefetch={false}
-                href="/advertisment"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              ADVERTISMENT
-            </Link>
-            <Link
-                prefetch={false}
-                href="/wedding"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              WEDDING
-            </Link>
-            <Link
-                prefetch={false}
-                href="/auto"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              AUTO
-            </Link>
-            <Link
-                prefetch={false}
-                href="/food"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              FOOD
-            </Link>
-            <Link
-                prefetch={false}
-                href="/subject"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              SUBJECT
-            </Link>
-            <Link
-                prefetch={false}
-                href="/video"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              VIDEO
-            </Link>
-            <Link
-                prefetch={false}
-                href="/contacts"
-                className="px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out border-4  border-transparent hover:border-b-4  hover:border-b-red-600"
-            >
-              CONTACTS
-            </Link>
-          </div>
-
-          <div className={'block xl:hidden mr-5'}>
-
-            {
-              !isOpen && (
-                    <button onClick={() => setIsOpen(!isOpen)} style={{scale: "1.8"}}>
-                      <CiMenuFries/>
-                    </button>
-                )
-            }
-            {
-                isOpen && (
-                    <button onClick={() => setIsOpen(!isOpen)} style={{scale: "1.8"}}>
-                      <RiCloseLargeLine/>
-                    </button>
-                )
-            }
-          </div>
+          <Header/>
 
 
-          {
-              isOpen && (
-                  <div className={'absolute top-[59px] left-0 bg-black  w-full'}>
-
-                    <div className={` grid grid-cols-1 `}>
-                      <Link
-                          prefetch={false}
-                          href="/"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        HOME
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/catalog"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        CATALOGUE
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/advertisment"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        ADVERTISMENT
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/wedding"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        WEDDING
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/auto"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        AUTO
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/food"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        FOOD
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/subject"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        SUBJECT
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/video"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        VIDEO
-                      </Link>
-                      <Link
-                          prefetch={false}
-                          href="/contacts"
-                          className="  px-6 hover:bg-white hover:text-black py-5  delay-75 transition ease-out    hover:border-b-4  hover:border-b-red-600"
-                      >
-                        CONTACTS
-                      </Link>
-                    </div>
-
-                  </div>
-              )
-          }
-
-        </div>
-      </header>
 
       <div
           className="mx-auto"
@@ -262,9 +51,9 @@ const aa = {
                 PROFESSIONAL trending photographer
               </p>
 
-              <div>
+              <div className={'flex justify-center items-center mb-5 sm:mb-0'}>
                 <Image
-                    className="max-w-[400px] border border-2  sm:border-4   sm:border-red-600 rounded-3xl "
+                    className="max-w-[300px] sm:max-w-[400px]  border-2  sm:border-4   sm:border-red-600 rounded-3xl "
                     src={ava}
                     alt="author"
                     height={500}
@@ -280,34 +69,32 @@ const aa = {
 
         </div>
 
-        <div className="container p-6 grid grid-cols-1 sm:grid-cols-3 gap-3  mx-auto ">
 
 
+        <div className="container p-6 grid grid-cols-1 sm:grid-cols-3 gap-5  mx-auto ">
 
           {
             posts.map(post=>(
-
-
                 <Link key={post.id} prefetch={false} href={post.attributes.url}
-                      className="items-center flex flex-col relative hover:bg-white duration-300 hover:scale-105  border border-white   bg-gray-950 rounded-3xl">
-                  <Image
-                      className="max-w-[300px]  "
-                      src={post.attributes.imageUrl}
-                      alt="author"
-                      height={500}
-                      width={500}
-                      quality={80}
-                  />
-                  <p className=" rounded-xl  text-black bg-white text-[2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%] bg-black">
+                      className="items-center  flex flex-col relative hover:bg-white duration-300 hover:scale-105  border border-[0.5px] border-white   bg-gray-950 rounded-2xl">
+                  <div className={'py-0 sm:p-10'}>
+                    <Image
+
+                        className="max-w-[275px]  rounded-2xl"
+                        src={post.attributes.imageUrl}
+                        alt="author"
+                        height={500}
+                        width={500}
+                        quality={80}
+                    />
+                  </div>
+                  <p className="  text-black bg-white text-[1.2rem] font-bold uppercase underline absolute bottom-[5px] p-5 left-[10%]">
                     {post.attributes.title}
                   </p>
                 </Link>
-
-
-
-
             ))
           }
+
 
 
         </div>
@@ -349,14 +136,10 @@ export async function getStaticProps() {
       Authorization:`Bearer ${process.env.API_TOKEN}`
     }
   })
-
   const data2 = await data.json()
-
   const data3 = data2.data.sort((a:any, b:any) => +a.attributes.positionNumber - +b.attributes.positionNumber)
-
   return {
     props: {
-      // posts: data2.data,
       posts: data3,
     },
     revalidate: 5, // In seconds
