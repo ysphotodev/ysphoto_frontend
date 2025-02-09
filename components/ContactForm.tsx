@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
+import Link from "next/link";
+
+import { BsInstagram } from "react-icons/bs";
+import { FaPhoneVolume } from "react-icons/fa6";
+
 /*eslint-disable*/
+
+
+
 function ContactForm() {
   const [isBlocked, setIsblocked] = useState(false);
   const submitHandler = (e:React.BaseSyntheticEvent) => {
@@ -31,10 +39,40 @@ function ContactForm() {
 
   return (
     <div className="w-full max-w-xl mx-auto">
+      <div className={'my-10 flex gap-7 items-center px-3'}>
+        <Link
+            href={'tel:+380637565959'}
+            prefetch={false}
+            className={'py-5 px-6 border  rounded bg-black text-white hover:bg-white hover:text-black hover:border-black duration-300  '}
+        >
+
+          <div className="flex items-center gap-5">
+            <FaPhoneVolume size={20} />
+            <p>+380637565959</p>
+          </div>
+
+
+        </Link>
+
+        <div>
+          <Link
+              href={'https://www.instagram.com/yurchicsergei/'}
+              prefetch={false}
+          >
+            <BsInstagram
+                className={'hover:bg-black duration-300 hover:text-white rounded-xl p-2'}
+                size={65}
+            />
+          </Link>
+
+        </div>
+
+
+      </div>
       <form
         onSubmit={(e) => submitHandler(e)}
         style={{ boxShadow: '0px 2px 22px 0px rgb(0 0 0 / 15%)' }}
-        className="bg-white px-8 pt-6 pb-8 mb-4"
+        className="bg-white px-8 pt-6 pb-8 mb-4 rounded"
       >
         <fieldset disabled={isBlocked}>
           <div className="mb-4">
